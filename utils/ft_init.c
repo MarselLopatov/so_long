@@ -6,7 +6,7 @@
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:47:11 by cdoria            #+#    #+#             */
-/*   Updated: 2022/02/24 18:27:02 by cdoria           ###   ########.fr       */
+/*   Updated: 2022/02/25 19:33:36 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,15 @@ void	ft_init_map(t_map *map)
 
 void	ft_init_vars(t_vars *vars)
 {
+	vars->pxl_x = 32;
+	vars->pxl_y = 32;
 	vars->fd = 0;
 	vars->line_map = NULL;
 	vars->mlx = NULL;
 	vars->mlx_win = NULL;
+	vars->img_player = NULL;
+	vars->img_collectible = NULL;
+	vars->img_exit = NULL;
+	vars->img_wall = NULL;
+	vars->img_floor = NULL;
 }

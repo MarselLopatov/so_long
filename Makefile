@@ -5,6 +5,9 @@ UTILS = check_valid_map.c \
 		ft_split.c \
 		ft_strlcpy.c \
 		ft_init.c \
+		read_map.c \
+		count_characters.c \
+		make_window.c \
 
 GNL_PATH = ./get_next_line/
 GNL =	get_next_line.c \

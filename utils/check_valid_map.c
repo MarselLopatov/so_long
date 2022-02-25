@@ -6,7 +6,7 @@
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 17:08:03 by cdoria            #+#    #+#             */
-/*   Updated: 2022/02/24 19:04:17 by cdoria           ###   ########.fr       */
+/*   Updated: 2022/02/25 19:37:20 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	check_line(t_map *map, int i)
 
 	if (i == 0)
 	{
-		map->rows = ft_strlen(map->map[i]);
+		map->rows = ft_strlen(map->map[i]) - 1;
 		map->columns++;
 		return (1);
 	}
-	else if (map->rows != ft_strlen(map->map[i]))
+	else if (map->rows != ft_strlen(map->map[i]) - 1)
 		return (0);
 	j = 0;
 	while (map->map[i][j])
@@ -49,28 +49,6 @@ int	check_valid_file(const char *file_name)
 	return (1);
 }
 
-int	read_map(t_vars *vars, t_map *map, const char *file_name)
-{
-	char	*tmp;
-
-	tmp = NULL;
-	vars->fd = open(file_name, O_RDONLY);
-	if (vars->fd < 0)
-		return (0);
-	while (1)
-	{
-		tmp = get_next_line(vars->fd);
-		if (!tmp)
-			break ;
-		vars->line_map = ft_strjoin(vars->line_map, tmp);
-		free(tmp);
-	}
-	map->map = ft_split(vars->line_map, '\n');
-	free(vars->line_map);
-	close (vars->fd);
-	return (1);
-}
-
 int	check_valid_walls(t_map *map)
 {
 	int	i;
@@ -84,9 +62,9 @@ int	check_valid_walls(t_map *map)
 		{
 			if (i == 0 && map->map[i][j] != '1')
 				return (0);	
-			else if ((j == 0 || j == map->columns) && map[i][j] != '1')
+			else if ((j == 0 || j == map->rows) && map->map[i][j] != '1')
 				return (0);
-			else if (i == map->columns && map[i][j] != '1')
+			else if (i == map->columns - 1 && map->map[i][j] != '1')
 				return (0);
 			j++;
 		}
@@ -107,7 +85,10 @@ int		check_valid_map(t_vars *vars, t_map *map, const char *file_name)
 	while (map->map[++i])
 		if (!check_line(map, i))
 			return (0);
-	if (map->columns == map->rows || !check_valid_walls(map))
+	if (map->columns - 1 == map->rows || !check_valid_walls(map))
+		return (0);
+	cout_characters(map);
+	if (!map->collectible || !map->exit || !map->player)
 		return (0);
 	return (1);
 }
