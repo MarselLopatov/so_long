@@ -6,7 +6,7 @@
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 14:42:52 by cdoria            #+#    #+#             */
-/*   Updated: 2022/02/25 19:51:14 by cdoria           ###   ########.fr       */
+/*   Updated: 2022/02/26 23:57:44 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,20 @@
 // УДАЛИ НА ХУЙ ЭТУ ХУЕТУ ЕБАНАТ ЕБАНЫЙ СУКА
 // УДАЛИ НА ХУЙ ЭТУ ХУЕТУ ЕБАНАТ ЕБАНЫЙ СУКА
 
+# define WALL "images/wall.xpm"
+# define PLAYER "images/player.xpm"
+# define EXIT "images/exit.xpm"
+# define COIN "images/collectible.xpm"
+# define FLOOR "images/floor.xpm"
+
 # include "get_next_line/get_next_line.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include "mlx.h"
 
-typedef struct s_vars{
-	void	*mlx;
-	void	*mlx_win;
-	int		fd;
-	int		pxl_x;
-	int		pxl_y;
-	char	*line_map;
-	char	*img_player;
-	char	*img_collectible;
-	char	*img_exit;
-	char	*img_wall;
-	char	*img_floor;
-	t_map	*map;
-}			t_vars;
-
 typedef struct s_map{
 	char	**map;
-	int		wall;
 	int		collectible;
 	int		exit;
 	int		player;
@@ -52,12 +42,24 @@ typedef struct s_map{
 	int		columns;
 }			t_map;
 
+typedef struct s_vars{
+	t_map	map;
+	void	*mlx;
+	void	*mlx_win;
+	int		fd;
+	int		pxl_x;
+	int		pxl_y;
+	char	*line_map;
+	char	*img;
+}			t_vars;
+
 //utils
 char	**ft_split(char const *s, char c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 char	*get_next_line(int fd);
 void	ft_exit(int flag);
-void	make_window(t_map *map, t_vars *vars);
+void	start_game(t_map *map, t_vars *vars);
+int		destroy(t_map *map, t_vars *vars);
 
 //valid
 void	cout_characters(t_map *map);

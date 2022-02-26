@@ -6,7 +6,7 @@
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 17:08:03 by cdoria            #+#    #+#             */
-/*   Updated: 2022/02/25 19:37:20 by cdoria           ###   ########.fr       */
+/*   Updated: 2022/02/26 22:56:57 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_line(t_map *map, int i)
 {
-	int j;
+	int	j;
 
 	if (i == 0)
 	{
@@ -27,8 +27,9 @@ int	check_line(t_map *map, int i)
 	j = 0;
 	while (map->map[i][j])
 	{
-		if (map->map[i][j] != '0' && map->map[i][j] != '1' && map->map[i][j] != 'C'
-			&& map->map[i][j] != 'E' && map->map[i][j] != 'P')
+		if (map->map[i][j] != '0' && map->map[i][j] != '1'
+			&& map->map[i][j] != 'C' && map->map[i][j] != 'E'
+				&& map->map[i][j] != 'P')
 			return (0);
 		j++;
 	}
@@ -38,7 +39,7 @@ int	check_line(t_map *map, int i)
 
 int	check_valid_file(const char *file_name)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (file_name[i])
@@ -61,7 +62,7 @@ int	check_valid_walls(t_map *map)
 		while (map->map[i][j])
 		{
 			if (i == 0 && map->map[i][j] != '1')
-				return (0);	
+				return (0);
 			else if ((j == 0 || j == map->rows) && map->map[i][j] != '1')
 				return (0);
 			else if (i == map->columns - 1 && map->map[i][j] != '1')
@@ -73,7 +74,7 @@ int	check_valid_walls(t_map *map)
 	return (1);
 }
 
-int		check_valid_map(t_vars *vars, t_map *map, const char *file_name)
+int	check_valid_map(t_vars *vars, t_map *map, const char *file_name)
 {
 	int	i;
 

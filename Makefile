@@ -7,13 +7,14 @@ UTILS = check_valid_map.c \
 		ft_init.c \
 		read_map.c \
 		count_characters.c \
-		make_window.c \
+		start_game.c \
+		destroy.c \
 
 GNL_PATH = ./get_next_line/
 GNL =	get_next_line.c \
 		get_next_line_utils.c
 
-CC = gcc -g3 #-fsanitize=address 
+CC = gcc -g3 #-fsanitize=address
 RM = rm -rf
 
 SRC = so_long.c $(addprefix $(UTILS_PATH), $(UTILS)) $(addprefix $(GNL_PATH), $(GNL))
