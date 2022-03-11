@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 14:42:20 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/11 20:50:52 by cdoria           ###   ########.fr       */
+/*   Created: 2022/03/06 15:51:56 by cdoria            #+#    #+#             */
+/*   Updated: 2022/03/06 15:56:21 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(int argc, char **argv)
+void	ft_putnbr(int n)
 {
-	t_map	map;
-	t_vars	vars;
+	char			temp;
+	unsigned int	nb;
 
-	if (argc != 2 || !check_valid_map(&vars, &map, argv[1]))
-		ft_exit(1);
-	start_game(&map, &vars);
-	return (0);
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		nb = -n;
+	}
+	else
+		nb = n;
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else
+	{
+		temp = nb + '0';
+		write(1, &temp, 1);
+	}
 }

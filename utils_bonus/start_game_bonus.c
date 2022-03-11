@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_game.c                                       :+:      :+:    :+:   */
+/*   start_game_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:29:13 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/06 16:52:23 by cdoria           ###   ########.fr       */
+/*   Updated: 2022/03/11 21:37:28 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 void	help_draw(t_map *map, t_vars *vars, int i)
 {
@@ -33,7 +33,10 @@ void	help_draw(t_map *map, t_vars *vars, int i)
 				vars->img_coin, (j * 32), (i * 32));
 		if (map->map[i][j] == 'P')
 			mlx_put_image_to_window(vars->mlx, vars->mlx_win,
-				vars->img_player, (j * 32), (i * 32));
+				vars->img_player_1, (j * 32), (i * 32));
+		if (map->map[i][j] == 'X')
+			mlx_put_image_to_window(vars->mlx, vars->mlx_win,
+				vars->img_patrol1, (j * 32), (i * 32));
 		j++;
 	}
 }
@@ -77,10 +80,12 @@ void	start_game(t_map *map, t_vars *vars)
 			EXIT, &vars->pxl_x, &vars->pxl_y);
 	vars->img_floor = mlx_xpm_file_to_image(vars->mlx,
 			FLOOR, &vars->pxl_x, &vars->pxl_y);
-	vars->img_player = mlx_xpm_file_to_image(vars->mlx,
-			PLAYER, &vars->pxl_x, &vars->pxl_y);
+	vars->img_player_1 = mlx_xpm_file_to_image(vars->mlx,
+			PLAYER1, &vars->pxl_x, &vars->pxl_y);
 	vars->img_wall = mlx_xpm_file_to_image(vars->mlx,
 			WALL, &vars->pxl_x, &vars->pxl_y);
+	vars->img_patrol1 = mlx_xpm_file_to_image(vars->mlx,
+			PATROL1, &vars->pxl_x, &vars->pxl_y);
 	draw_map(map, vars);
 	mlx_hook(vars->mlx_win, 2, 1L << 0, &key_hook, vars);
 	mlx_hook(vars->mlx_win, 17, 0, &end_prog, vars);

@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 14:42:20 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/11 20:50:52 by cdoria           ###   ########.fr       */
+/*   Created: 2022/02/23 21:38:09 by cdoria            #+#    #+#             */
+/*   Updated: 2022/03/11 19:52:31 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long_bonus.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	t_map	map;
-	t_vars	vars;
+	size_t	i;
+	size_t	len;
 
-	if (argc != 2 || !check_valid_map(&vars, &map, argv[1]))
-		ft_exit(1);
-	start_game(&map, &vars);
-	return (0);
+	len = ft_strlen(src);
+	i = 0;
+	if (!dst || !src)
+		return (0);
+	if (size == 0)
+		return (len);
+	while (src[i] != '\0' && i < size - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (len);
 }

@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   end_prog_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 14:42:20 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/11 20:50:52 by cdoria           ###   ########.fr       */
+/*   Created: 2022/02/26 23:01:16 by cdoria            #+#    #+#             */
+/*   Updated: 2022/03/11 20:33:30 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long_bonus.h"
 
-int	main(int argc, char **argv)
+void	ft_exit(int flag)
 {
-	t_map	map;
-	t_vars	vars;
+	if (flag)
+		write(2, "Error\n", 6);
+	exit(1);
+}
 
-	if (argc != 2 || !check_valid_map(&vars, &map, argv[1]))
-		ft_exit(1);
-	start_game(&map, &vars);
-	return (0);
+void	free_all(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	while (map->map[i++])
+		free(map->map[i]);
+	free(map->map);
+}
+
+int	end_prog(t_vars *vars)
+{
+	(void) vars;
+	exit (0);
+	return (1);
 }

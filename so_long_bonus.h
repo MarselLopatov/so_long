@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 14:42:52 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/06 15:57:35 by cdoria           ###   ########.fr       */
+/*   Created: 2022/03/11 19:46:51 by cdoria            #+#    #+#             */
+/*   Updated: 2022/03/11 21:31:22 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 // УДАЛИ НА ХУЙ ЭТУ ХУЕТУ ЕБАНАТ ЕБАНЫЙ СУКА
 // УДАЛИ НА ХУЙ ЭТУ ХУЕТУ ЕБАНАТ ЕБАНЫЙ СУКА
@@ -19,11 +19,15 @@
 // УДАЛИ НА ХУЙ ЭТУ ХУЕТУ ЕБАНАТ ЕБАНЫЙ СУКА
 // УДАЛИ НА ХУЙ ЭТУ ХУЕТУ ЕБАНАТ ЕБАНЫЙ СУКА
 
-# define WALL "images/wall.xpm"
-# define PLAYER "images/player.xpm"
-# define EXIT "images/exit.xpm"
-# define COIN "images/collectible.xpm"
-# define FLOOR "images/floor.xpm"
+# define WALL "images/wall_bonus.xpm"
+# define PLAYER1 "images/player_bonus_1.xpm"
+# define PLAYER2 "images/player_bonus_2.xpm"
+# define PLAYER3 "images/player_bonus_3.xpm"
+# define EXIT "images/exit_bonus.xpm"
+# define COIN "images/collectible_bonus.xpm"
+# define FLOOR "images/floor_bonus.xpm"
+# define PATROL1 "images/patrol1.xpm"
+# define PATROL2 "images/patrol2.xpm"
 
 # include "get_next_line/get_next_line.h"
 # include <stdlib.h>
@@ -52,10 +56,14 @@ typedef struct s_vars{
 	long	count_steps;
 	char	*line_map;
 	void	*img_wall;
-	void	*img_player;
+	void	*img_player_1;
+	void	*img_player_2;
+	void	*img_player_3;
 	void	*img_coin;
 	void	*img_floor;
 	void	*img_exit;
+	void	*img_patrol1;
+	void	*img_patrol2;
 }			t_vars;
 
 //utils

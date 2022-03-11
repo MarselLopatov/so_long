@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   count_characters_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 14:42:20 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/11 20:50:52 by cdoria           ###   ########.fr       */
+/*   Created: 2022/02/25 16:29:14 by cdoria            #+#    #+#             */
+/*   Updated: 2022/03/11 19:59:44 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long_bonus.h"
 
-int	main(int argc, char **argv)
+void	cout_characters(t_map *map, int i)
 {
-	t_map	map;
-	t_vars	vars;
+	int	j;
 
-	if (argc != 2 || !check_valid_map(&vars, &map, argv[1]))
-		ft_exit(1);
-	start_game(&map, &vars);
-	return (0);
+	j = 0;
+	while (map->map[i][j])
+	{
+		if (map->map[i][j] == 'P' )
+		{
+			map->player++;
+			if (map->player > 1)
+			{
+				map->map[i][j] = '0';
+				continue ;
+			}
+			map->x = j;
+			map->y = i;
+		}
+		else if (map->map[i][j] == 'E')
+			map->exit++;
+		else if (map->map[i][j] == 'C')
+			map->collectible++;
+		j++;
+	}	
 }

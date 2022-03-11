@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_valid_map.c                                  :+:      :+:    :+:   */
+/*   check_valid_map_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 17:08:03 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/11 20:53:59 by cdoria           ###   ########.fr       */
+/*   Updated: 2022/03/11 21:19:17 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 int	check_line(t_map *map, int i)
 {
@@ -29,7 +29,7 @@ int	check_line(t_map *map, int i)
 	{
 		if (map->map[i][j] != '0' && map->map[i][j] != '1'
 			&& map->map[i][j] != 'C' && map->map[i][j] != 'E'
-				&& map->map[i][j] != 'P')
+				&& map->map[i][j] != 'P' && map->map[i][j] != 'X')
 			return (0);
 		j++;
 	}

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   ft_init_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:47:11 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/11 20:50:44 by cdoria           ###   ########.fr       */
+/*   Updated: 2022/03/11 21:31:30 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 void	ft_init_map(t_map *map)
 {
@@ -36,6 +36,10 @@ void	ft_init_vars(t_vars *vars)
 	vars->img_coin = NULL;
 	vars->img_exit = NULL;
 	vars->img_floor = NULL;
-	vars->img_player = NULL;
+	vars->img_player_1 = NULL;
+	vars->img_player_2 = NULL;
+	vars->img_player_3 = NULL;
+	vars->img_patrol1 = NULL;
+	vars->img_patrol2 = NULL;
 	vars->img_wall = NULL;
 }
