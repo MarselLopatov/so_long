@@ -6,7 +6,7 @@
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:40:59 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/11 17:21:10 by cdoria           ###   ########.fr       */
+/*   Updated: 2022/03/15 18:12:44 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	move_up(t_vars *vars)
 		return ;
 	if (vars->map->map[vars->map->y - 1][vars->map->x] == 'E'
 		&& vars->map->collectible == 0)
-		ft_exit(0);
+		ft_exit_win();
 	else if (vars->map->map[vars->map->y - 1][vars->map->x] == 'E'
 		&& vars->map->collectible != 0)
 		return ;
@@ -49,7 +49,7 @@ void	move_down(t_vars *vars)
 		return ;
 	if (vars->map->map[vars->map->y + 1][vars->map->x] == 'E'
 		&& vars->map->collectible == 0)
-		ft_exit(0);
+		ft_exit_win();
 	else if (vars->map->map[vars->map->y + 1][vars->map->x] == 'E'
 		&& vars->map->collectible != 0)
 		return ;
@@ -71,7 +71,7 @@ void	move_left(t_vars *vars)
 		return ;
 	if (vars->map->map[vars->map->y][vars->map->x - 1] == 'E'
 		&& vars->map->collectible == 0)
-		ft_exit(0);
+		ft_exit_win();
 	else if (vars->map->map[vars->map->y][vars->map->x - 1] == 'E'
 		&& vars->map->collectible != 0)
 		return ;
@@ -93,7 +93,7 @@ void	move_right(t_vars *vars)
 		return ;
 	if (vars->map->map[vars->map->y][vars->map->x + 1] == 'E'
 		&& vars->map->collectible == 0)
-		ft_exit(0);
+		ft_exit_win();
 	else if (vars->map->map[vars->map->y][vars->map->x + 1] == 'E'
 		&& vars->map->collectible != 0)
 		return ;

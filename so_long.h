@@ -6,7 +6,7 @@
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 14:42:52 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/06 15:57:35 by cdoria           ###   ########.fr       */
+/*   Updated: 2022/03/15 17:41:42 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	start_game(t_map *map, t_vars *vars);
 int		end_prog(t_vars *vars);
 void	draw_map(t_map *map, t_vars *vars);
 void	ft_putnbr(int n);
+void	ft_exit_win(void);
 
 //valid
 void	cout_characters(t_map *map, int i);

@@ -6,7 +6,7 @@
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 17:08:03 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/11 21:19:17 by cdoria           ###   ########.fr       */
+/*   Updated: 2022/03/15 18:15:13 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	check_valid_map(t_vars *vars, t_map *map, const char *file_name)
 			return (0);
 		cout_characters(map, i);
 	}
-	if (map->columns - 1 == map->rows || !check_valid_walls(map))
+	if (!check_valid_walls(map))
 		return (0);
 	if (!map->collectible || !map->exit || !map->player)
 		return (0);

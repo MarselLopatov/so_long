@@ -6,7 +6,7 @@
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:29:13 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/11 21:37:28 by cdoria           ###   ########.fr       */
+/*   Updated: 2022/03/15 18:13:24 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@ void	help_draw(t_map *map, t_vars *vars, int i)
 		if (map->map[i][j] == 'C')
 			mlx_put_image_to_window(vars->mlx, vars->mlx_win,
 				vars->img_coin, (j * 32), (i * 32));
-		if (map->map[i][j] == 'P')
-			mlx_put_image_to_window(vars->mlx, vars->mlx_win,
-				vars->img_player_1, (j * 32), (i * 32));
-		if (map->map[i][j] == 'X')
-			mlx_put_image_to_window(vars->mlx, vars->mlx_win,
-				vars->img_patrol1, (j * 32), (i * 32));
 		j++;
 	}
 }
@@ -73,20 +67,18 @@ void	start_game(t_map *map, t_vars *vars)
 	vars->map = map;
 	vars->mlx = mlx_init();
 	vars->mlx_win = mlx_new_window(vars->mlx,
-			(map->rows + 1) * 32, map->columns * 32, "LOL!");
+			(map->rows + 1) * 32, map->columns * 32, "So_long");
 	vars->img_coin = mlx_xpm_file_to_image(vars->mlx,
 			COIN, &vars->pxl_x, &vars->pxl_y);
 	vars->img_exit = mlx_xpm_file_to_image(vars->mlx,
 			EXIT, &vars->pxl_x, &vars->pxl_y);
 	vars->img_floor = mlx_xpm_file_to_image(vars->mlx,
 			FLOOR, &vars->pxl_x, &vars->pxl_y);
-	vars->img_player_1 = mlx_xpm_file_to_image(vars->mlx,
-			PLAYER1, &vars->pxl_x, &vars->pxl_y);
 	vars->img_wall = mlx_xpm_file_to_image(vars->mlx,
 			WALL, &vars->pxl_x, &vars->pxl_y);
-	vars->img_patrol1 = mlx_xpm_file_to_image(vars->mlx,
-			PATROL1, &vars->pxl_x, &vars->pxl_y);
 	draw_map(map, vars);
+	mlx_string_put(vars->mlx, vars->mlx_win, 5, 5, 0xFFA500, "0");
+	animation(vars);
 	mlx_hook(vars->mlx_win, 2, 1L << 0, &key_hook, vars);
 	mlx_hook(vars->mlx_win, 17, 0, &end_prog, vars);
 	mlx_loop(vars->mlx);

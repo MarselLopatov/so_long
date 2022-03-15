@@ -6,7 +6,7 @@
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:47:11 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/11 21:31:30 by cdoria           ###   ########.fr       */
+/*   Updated: 2022/03/15 18:11:24 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_init_map(t_map *map)
 
 void	ft_init_vars(t_vars *vars)
 {
+	vars->steps = 0;
 	vars->pxl_x = 32;
 	vars->pxl_y = 32;
 	vars->fd = 0;
@@ -36,10 +37,10 @@ void	ft_init_vars(t_vars *vars)
 	vars->img_coin = NULL;
 	vars->img_exit = NULL;
 	vars->img_floor = NULL;
-	vars->img_player_1 = NULL;
-	vars->img_player_2 = NULL;
-	vars->img_player_3 = NULL;
-	vars->img_patrol1 = NULL;
-	vars->img_patrol2 = NULL;
+	vars->img_player[0] = NULL;
+	vars->img_player[1] = NULL;
+	vars->img_player[2] = NULL;
+	vars->img_patrol[0] = NULL;
+	vars->img_patrol[1] = NULL;
 	vars->img_wall = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 19:46:51 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/11 21:31:22 by cdoria           ###   ########.fr       */
+/*   Updated: 2022/03/15 17:37:42 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_map{
 
 typedef struct s_vars{
 	t_map	*map;
+	int		steps;
 	void	*mlx;
 	void	*mlx_win;
 	int		fd;
@@ -56,14 +57,11 @@ typedef struct s_vars{
 	long	count_steps;
 	char	*line_map;
 	void	*img_wall;
-	void	*img_player_1;
-	void	*img_player_2;
-	void	*img_player_3;
+	void	*img_player[3];
 	void	*img_coin;
 	void	*img_floor;
 	void	*img_exit;
-	void	*img_patrol1;
-	void	*img_patrol2;
+	void	*img_patrol[2];
 }			t_vars;
 
 //utils
@@ -74,7 +72,10 @@ void	ft_exit(int flag);
 void	start_game(t_map *map, t_vars *vars);
 int		end_prog(t_vars *vars);
 void	draw_map(t_map *map, t_vars *vars);
-void	ft_putnbr(int n);
+char	*ft_itoa(int n);
+void	animation(t_vars *vars);
+void	ft_exit_lost(void);
+void	ft_exit_win(void);
 
 //valid
 void	cout_characters(t_map *map, int i);

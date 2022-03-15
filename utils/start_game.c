@@ -6,7 +6,7 @@
 /*   By: cdoria <cdoria@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:29:13 by cdoria            #+#    #+#             */
-/*   Updated: 2022/03/06 16:52:23 by cdoria           ###   ########.fr       */
+/*   Updated: 2022/03/15 18:14:23 by cdoria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	start_game(t_map *map, t_vars *vars)
 	vars->map = map;
 	vars->mlx = mlx_init();
 	vars->mlx_win = mlx_new_window(vars->mlx,
-			(map->rows + 1) * 32, map->columns * 32, "LOL!");
+			(map->rows + 1) * 32, map->columns * 32, "So_long");
 	vars->img_coin = mlx_xpm_file_to_image(vars->mlx,
 			COIN, &vars->pxl_x, &vars->pxl_y);
 	vars->img_exit = mlx_xpm_file_to_image(vars->mlx,
@@ -82,6 +82,7 @@ void	start_game(t_map *map, t_vars *vars)
 	vars->img_wall = mlx_xpm_file_to_image(vars->mlx,
 			WALL, &vars->pxl_x, &vars->pxl_y);
 	draw_map(map, vars);
+	write(1, "0\n", 2);
 	mlx_hook(vars->mlx_win, 2, 1L << 0, &key_hook, vars);
 	mlx_hook(vars->mlx_win, 17, 0, &end_prog, vars);
 	mlx_loop(vars->mlx);
